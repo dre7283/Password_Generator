@@ -89,19 +89,37 @@ var Uppers = [
   'Z', 
 ]
 
-// Password Length
-function getlength(){
+// Password Options
+function getPasswordOptions(){
+  var length = parseInt(
+    prompt("Enter Length of Password"),
+    10
+  );  
 
-  prompt('Password must be between 8 and 128 characters.')
-};
+  // Checking is length of password provided as a number
+if (Number.isNAN(length)){
+  alert("Please provide password length as a number");
+  return null;
+}
 
+// Alert if password is less than 8 characters
+if (length<8) {
+  alert("Please provide password with a minimum of 8 characters");
+  return null;
+}
 
-// Password contains specials
+//Alert if password is greater than 128 characters 
+if (length> 128) {
+  alert("Please provide password with a maximum of 128 characters");
+  return null;
+}
+
+// Password contains special characters
 var hasSpecials = confirm(
   'Click OK to confirm include special characters'
 );
 // Password contains numbers
-var hasnumbers = confirm(
+var hasNumbers = confirm(
   'Click OK to confirm include numeric characters'
 );
 
@@ -115,6 +133,7 @@ var hasUppers = confirm(
   'Click OK to confirm include UpperCase characters'
 );
 
+}
 
 
 // Assignment Code
